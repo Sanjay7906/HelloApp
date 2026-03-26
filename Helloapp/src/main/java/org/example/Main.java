@@ -4,10 +4,16 @@ package org.example;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     static void main(String[] args) {
-        String name = "World";
-        if (args.length > 0){
-            name = args[0];
+        String greeting;
+
+        if (args.length > 0) {
+            // Using String.join for clean, comma-separated names
+            greeting = String.join(", ", args);
+        } else {
+            greeting = "World";
         }
-        System.out.println("Hello, "+ name + "!");
+
+        // Output the final formatted greeting
+        System.out.println("Hello, " + greeting + "!");
     }
 }
