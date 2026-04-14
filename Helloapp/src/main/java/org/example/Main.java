@@ -1,25 +1,22 @@
 import java.util.Scanner;
 
-class Main {
+class Main
+{
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
 
-        int[] ages = new int[10];
+        System.out.print("Enter number: ");
+        int number = input.nextInt();
 
-        System.out.println("Enter ages:");
-        for (int i = 0; i < ages.length; i++) {
-            ages[i] = input.nextInt();
+        int[] table = new int[10];
+
+        for (int i = 0; i < table.length; i++) {
+            table[i] = number * (i + 1);
         }
 
-        for (int i = 0; i < ages.length; i++) {
-            if (ages[i] < 0) {
-                System.err.println("Invalid age");
-            } else if (ages[i] >= 18) {
-                System.out.println(ages[i] + " can vote");
-            } else {
-                System.out.println(ages[i] + " cannot vote");
-            }
+        for (int i = 0; i < table.length; i++) {
+            System.out.println(number + " * " + (i + 1) + " = " + table[i]);
         }
 
         input.close();
