@@ -8,27 +8,24 @@ class Main {
         System.out.print("Enter number: ");
         int number = input.nextInt();
 
-        int[] digits = new int[10];
-        int index = 0;
+        if (number < 0) {
+            System.err.println("Invalid number");
+            System.exit(0);
+        }
 
-        while (number > 0 && index < digits.length) {
-            digits[index++] = number % 10;
+        int[] freq = new int[10];
+
+        while (number > 0) {
+            int digit = number % 10;
+            freq[digit]++;
             number /= 10;
         }
 
-        int largest = 0, second = 0;
-
-        for (int i = 0; i < index; i++) {
-            if (digits[i] > largest) {
-                second = largest;
-                largest = digits[i];
-            } else if (digits[i] > second && digits[i] != largest) {
-                second = digits[i];
+        for (int i = 0; i < freq.length; i++) {
+            if (freq[i] > 0) {
+                System.out.println(i + " occurs " + freq[i] + " times");
             }
         }
-
-        System.out.println("Largest: " + largest);
-        System.out.println("Second Largest: " + second);
 
         input.close();
     }
