@@ -4,12 +4,15 @@ class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        int age = input.nextInt();
+        int number = input.nextInt();
+        int sum = 0;
 
-        if (age >= 18)
-            System.out.println("Can Vote");
-        else
-            System.out.println("Cannot Vote");
+        while (number != 0) {
+            sum += number % 10;
+            number /= 10;
+        }
+
+        System.out.println("Sum = " + sum);
 
         input.close();
     }
