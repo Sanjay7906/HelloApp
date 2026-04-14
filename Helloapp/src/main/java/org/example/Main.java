@@ -1,19 +1,23 @@
-package org.example;
-
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    static void main(String[] args) {
-        String greeting;
-
-        if (args.length > 0) {
-            // Using String.join for clean, comma-separated names
-            greeting = String.join(", ", args);
+    public static void main(String[] args) {
+        // Step 1: Check if arguments are provided
+        if (args.length == 0) {
+            System.out.println("Hello, World!");
         } else {
-            greeting = "World";
-        }
+            // Step 2: Use StringBuilder for efficient string construction
+            StringBuilder namesList = new StringBuilder();
 
-        // Output the final formatted greeting
-        System.out.println("Hello, " + greeting + "!");
+            // Step 3: Enhanced For Loop (for-each) to iterate through args
+            for (String name : args) {
+                // Add a comma and space if StringBuilder is not empty (conditional delimiter)
+                if (namesList.length() > 0) {
+                    namesList.append(", ");
+                }
+                namesList.append(name);
+            }
+
+            // Step 4: Print the final concatenated greeting
+            System.out.println("Hello, " + namesList.toString() + "!");
+        }
     }
 }
