@@ -1,33 +1,34 @@
 import java.util.Scanner;
 
-class EmployeeBonus {
+class Main {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
 
-        double[] salary = new double[10];
-        double[] years = new double[10];
-        double totalBonus = 0;
+        System.out.print("Enter number: ");
+        int number = input.nextInt();
 
-        for (int i = 0; i < 10; i++) {
+        int[] digits = new int[10];
+        int index = 0;
 
-            System.out.print("Salary: ");
-            salary[i] = input.nextDouble();
-
-            System.out.print("Years: ");
-            years[i] = input.nextDouble();
-
-            if (salary[i] <= 0 || years[i] < 0) {
-                System.err.println("Invalid input");
-                i--;
-                continue;
-            }
-
-            double bonus = (years[i] > 5) ? salary[i] * 0.05 : salary[i] * 0.02;
-            totalBonus += bonus;
+        while (number > 0 && index < digits.length) {
+            digits[index++] = number % 10;
+            number /= 10;
         }
 
-        System.out.println("Total Bonus: " + totalBonus);
+        int largest = 0, second = 0;
+
+        for (int i = 0; i < index; i++) {
+            if (digits[i] > largest) {
+                second = largest;
+                largest = digits[i];
+            } else if (digits[i] > second && digits[i] != largest) {
+                second = digits[i];
+            }
+        }
+
+        System.out.println("Largest: " + largest);
+        System.out.println("Second Largest: " + second);
 
         input.close();
     }
