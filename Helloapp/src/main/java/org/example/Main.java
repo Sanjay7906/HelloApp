@@ -3,15 +3,14 @@ import java.util.Scanner;
 class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.print("Enter countdown start: ");
-        int counter = input.nextInt();
 
-        // While loop for countdown
-        while (counter >= 1) {
-            System.out.println(counter + "...");
-            counter--; // Decrement
-        }
-        System.out.println("Liftoff!");
+        int age = input.nextInt();
+
+        if (age >= 18)
+            System.out.println("Can Vote");
+        else
+            System.out.println("Cannot Vote");
+
         input.close();
     }
 }
