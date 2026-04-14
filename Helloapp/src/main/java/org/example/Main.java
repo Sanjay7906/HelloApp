@@ -1,23 +1,24 @@
+package org.example; // Ensure this matches your directory structure
+
 public class Main {
     public static void main(String[] args) {
         // Step 1: Check if arguments are provided
         if (args.length == 0) {
             System.out.println("Hello, World!");
         } else {
-            // Step 2: Use StringBuilder for efficient string construction
-            StringBuilder namesList = new StringBuilder();
+            StringBuilder nameBuilder = new StringBuilder();
 
-            // Step 3: Enhanced For Loop (for-each) to iterate through args
+            // Step 2: Enhanced For Loop - append every name with a delimiter
             for (String name : args) {
-                // Add a comma and space if StringBuilder is not empty (conditional delimiter)
-                if (namesList.length() > 0) {
-                    namesList.append(", ");
-                }
-                namesList.append(name);
+                nameBuilder.append(name).append(", ");
             }
 
-            // Step 4: Print the final concatenated greeting
-            System.out.println("Hello, " + namesList.toString() + "!");
+            // Step 3: Remove the trailing ", " using substring
+            // nameBuilder.length() - 2 removes the last two characters
+            String finalNames = nameBuilder.substring(0, nameBuilder.length() - 2);
+
+            // Step 4: Print the final greeting
+            System.out.println("Hello, " + finalNames + "!");
         }
     }
 }
