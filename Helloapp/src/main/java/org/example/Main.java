@@ -4,12 +4,21 @@ class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        int year = input.nextInt();
+        int number = input.nextInt();
+        boolean isPrime = true;
 
-        if (year >= 1582 && (year % 4 == 0 && year % 100 != 0 || year % 400 == 0))
-            System.out.println("Leap Year");
-        else
-            System.out.println("Not Leap Year");
+        if (number <= 1)
+            isPrime = false;
+        else {
+            for (int i = 2; i < number; i++) {
+                if (number % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+
+        System.out.println(isPrime);
 
         input.close();
     }
