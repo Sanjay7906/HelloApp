@@ -5,34 +5,22 @@ class Main {
 
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Enter a number: ");
-        int number = input.nextInt();
+        int[] ages = new int[10];
 
-        if (number < 0) {
-            System.err.println("Invalid Number");
-            System.exit(0);
+        System.out.println("Enter ages:");
+        for (int i = 0; i < ages.length; i++) {
+            ages[i] = input.nextInt();
         }
 
-        int temp = number, count = 0;
-
-        while (temp > 0) {
-            count++;
-            temp /= 10;
+        for (int i = 0; i < ages.length; i++) {
+            if (ages[i] < 0) {
+                System.err.println("Invalid age");
+            } else if (ages[i] >= 18) {
+                System.out.println(ages[i] + " can vote");
+            } else {
+                System.out.println(ages[i] + " cannot vote");
+            }
         }
-
-        int[] digits = new int[count];
-
-        for (int i = 0; i < digits.length; i++) {
-            digits[i] = number % 10;
-            number /= 10;
-        }
-
-        int sum = 0;
-        for (int i = 0; i < digits.length; i++) {
-            sum += digits[i];
-        }
-
-        System.out.println("Sum: " + sum);
 
         input.close();
     }
