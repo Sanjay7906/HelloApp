@@ -1,17 +1,14 @@
-package org.example;
+import java.util.Scanner;
 
-public class Main {
+class Main {
     public static void main(String[] args) {
-        // Step 1: Check for arguments
-        if (args.length == 0) {
-            System.out.println("Hello, World!");
-        } else {
-            // Step 2: Use String.join to concatenate the array with a delimiter
-            // This handles multiple names and the "no trailing comma" logic automatically.
-            String joinedNames = String.join(", ", args);
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = input.nextInt();
 
-            // Step 3: Print the final greeting
-            System.out.println("Hello, " + joinedNames + "!");
-        }
+        // Boolean expression for divisibility
+        boolean isDivisible = (number % 5 == 0);
+        System.out.println("Is the number " + number + " divisible by 5? " + isDivisible);
+        input.close();
     }
 }
